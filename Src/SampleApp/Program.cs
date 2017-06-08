@@ -52,63 +52,63 @@ namespace SampleApp
 
             return;
 
-            if (args == null || args.Length == 0)
-            {
-                var serverTask = RunServerAsync(options, cancellationTokenSource.Token);
-                var clientTask1 = RunClientAsync("A", cancellationToken: cancellationTokenSource.Token);
-                var clientTask2 = RunClientAsync("B", cancellationToken: cancellationTokenSource.Token);
-                var clientTask3 = RunClientAsync("C", cancellationToken: cancellationTokenSource.Token);
+            //if (args == null || args.Length == 0)
+            //{
+            //    var serverTask = RunServerAsync(options, cancellationTokenSource.Token);
+            //    var clientTask1 = RunClientAsync("A", cancellationToken: cancellationTokenSource.Token);
+            //    var clientTask2 = RunClientAsync("B", cancellationToken: cancellationTokenSource.Token);
+            //    var clientTask3 = RunClientAsync("C", cancellationToken: cancellationTokenSource.Token);
 
-                Console.WriteLine("Press any key to continue");
-                Console.ReadKey();
+            //    Console.WriteLine("Press any key to continue Server");
+            //    Console.ReadKey();
 
-                cancellationTokenSource.Cancel();
+            //    cancellationTokenSource.Cancel();
 
-                serverTask.WaitWithoutException();
-                clientTask1.WaitWithoutException();
-                clientTask2.WaitWithoutException();
-                clientTask3.WaitWithoutException();
+            //    serverTask.WaitWithoutException();
+            //    clientTask1.WaitWithoutException();
+            //    clientTask2.WaitWithoutException();
+            //    clientTask3.WaitWithoutException();
 
-                return;
-            }
+            //    return;
+            //}
 
-            if (args[0] == "server")
-            {
-                var serverTask = RunServerAsync(options, cancellationTokenSource.Token);
+            //if (args[0] == "server")
+            //{
+            //    var serverTask = RunServerAsync(options, cancellationTokenSource.Token);
 
-                Console.WriteLine("Press any key to continue");
-                Console.ReadKey();
+            //    Console.WriteLine("Press any key to continue");
+            //    Console.ReadKey();
 
-                cancellationTokenSource.Cancel();
+            //    cancellationTokenSource.Cancel();
 
-                serverTask.WaitWithoutException();
+            //    serverTask.WaitWithoutException();
 
-                return;
-            }
+            //    return;
+            //}
 
-            if (args[0] == "client")
-            {
-                var clientTask = RunClientAsync(args[1], cancellationToken: cancellationTokenSource.Token);
+            //if (args[0] == "client")
+            //{
+            //    var clientTask = RunClientAsync(args[1], cancellationToken: cancellationTokenSource.Token);
 
-                Console.WriteLine("Press any key to continue");
-                Console.ReadKey();
+            //    Console.WriteLine("Press any key to continue");
+            //    Console.ReadKey();
 
-                cancellationTokenSource.Cancel();
+            //    cancellationTokenSource.Cancel();
 
-                clientTask.WaitWithoutException();
-            }
+            //    clientTask.WaitWithoutException();
+            //}
 
-            if (args[0] == "folder")
-            {
-                var clientTask = RunClientAsync(args[1], cancellationToken: cancellationTokenSource.Token);
+            //if (args[0] == "folder")
+            //{
+            //    var clientTask = RunClientAsync(args[1], cancellationToken: cancellationTokenSource.Token);
 
-                Console.WriteLine("Press any key to continue");
-                Console.ReadKey();
+            //    Console.WriteLine("Press any key to continue");
+            //    Console.ReadKey();
 
-                cancellationTokenSource.Cancel();
+            //    cancellationTokenSource.Cancel();
 
-                clientTask.WaitWithoutException();
-            }
+            //    clientTask.WaitWithoutException();
+            //}
         }
 
         static async Task RunServerAsync(ISmtpServerOptions options, CancellationToken cancellationToken)
@@ -283,8 +283,8 @@ namespace SampleApp
             // to create an X509Certificate for testing you need to run MAKECERT.EXE and then PVK2PFX.EXE
             // http://www.digitallycreated.net/Blog/38/using-makecert-to-create-certificates-for-development
 
-            var certificate = File.ReadAllBytes(@"C:\Dropbox\Documents\Cain\Programming\SmtpServer\SmtpServer.pfx");
-            var password = File.ReadAllText(@"C:\Dropbox\Documents\Cain\Programming\SmtpServer\SmtpServerPassword.txt");
+            var certificate = File.ReadAllBytes(@"C:\Users\irwanazam\CertMail\siputemail.pfx");
+            var password = File.ReadAllText(@"C:\Users\irwanazam\Documents\ServerMailPassword.txt");
 
             return new X509Certificate2(certificate, password);
         }
