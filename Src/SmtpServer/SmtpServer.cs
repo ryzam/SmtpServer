@@ -86,6 +86,7 @@ namespace SmtpServer
 
                     OnSessionCreated(new SessionEventArgs(session.Context));
 
+                    //Start Execute Session
                     session.Run(cancellationToken);
 
                     #pragma warning disable 4014

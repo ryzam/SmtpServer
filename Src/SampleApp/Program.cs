@@ -14,6 +14,7 @@ using SmtpServer.Tracing;
 using MimeKit;
 using MimeKit.Text;
 using SmtpClient = MailKit.Net.Smtp.SmtpClient;
+using SmtpServer.Storages.Cassandra;
 
 namespace SampleApp
 {
@@ -32,7 +33,8 @@ namespace SampleApp
                 .Port(9025)
                 .Certificate(certificate)
                 .SupportedSslProtocols(SslProtocols.Default)
-                .MessageStore(new SampleMessageStore())
+                .MessageStore(new CassandraMessageStorage())
+                //.MessageStore(new SampleMessageStore())
                 //.MailboxFilter(new SampleMailboxFilter())
                 .UserAuthenticator(new SampleUserAuthenticator())
                 .Build();

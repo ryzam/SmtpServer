@@ -43,8 +43,10 @@ namespace SmtpServer.Protocol
                     await context.Client.ReplyAsync(response, cancellationToken).ConfigureAwait(false);
                 }
             }
-            catch (Exception)
+            catch (Exception err)
             {
+                Console.WriteLine(err.ToString());
+
                 await context.Client.ReplyAsync(new SmtpResponse(SmtpReplyCode.TransactionFailed), cancellationToken).ConfigureAwait(false);
             }
         }

@@ -330,6 +330,7 @@ namespace SmtpServer.IO
             {
                 throw new ArgumentNullException(nameof(client));
             }
+            Console.WriteLine("Msg "+response.Message);
 
             await client.WriteLineAsync($"{(int)response.ReplyCode} {response.Message}", cancellationToken);
             await client.FlushAsync(cancellationToken);

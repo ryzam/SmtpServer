@@ -25,7 +25,7 @@ namespace SampleApp
 
             using (var reader = new StreamReader(textMessage.Content, Encoding.UTF8))
             {
-                Console.WriteLine(reader.ReadToEnd());
+                Console.WriteLine("Hello Data"+reader.ReadToEnd());
             }
 
             return Task.FromResult(SmtpResponse.Ok);
